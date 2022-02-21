@@ -1,6 +1,6 @@
 import React from 'react';
 import Stocks from './stocks.json';
-import './Stock.css'
+import './Stock.css';
 
 const Stock = () => {
   return (
