@@ -30,7 +30,7 @@ const Stock = () => {
 
             <tbody>
                 {
-                    stocks.map((stock,index)=>{
+                  stocks && stocks.map((stock,index)=>{
                         return(
                             <tr key={index}>
                                 <td style={{textAlign:"left"}}>{stock.Stock}</td>
