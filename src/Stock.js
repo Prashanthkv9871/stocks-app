@@ -1,8 +1,19 @@
-import React from 'react';
-import Stocks from './stocks.json';
+import React, {useState,useEffect} from 'react';
 import './Stock.css';
+import axios from 'axios';
 
 const Stock = () => {
+    const [stocks,setStocks] = useState([]);
+    
+    useEffect(()=>{
+        axios
+        .get('./stocks.json')
+        .then((res)=> setStocks(res.data))
+        .catch((err)=>{
+            console.log(err)
+        })
+    },[]);
+
   return (
     <>
     <h1 className='header'>STOCKS DATA</h1>
@@ -19,7 +30,7 @@ const Stock = () => {
 
             <tbody>
                 {
-                    Stocks.map((stock,index)=>{
+                    stocks.map((stock,index)=>{
                         return(
                             <tr key={index}>
                                 <td style={{textAlign:"left"}}>{stock.Stock}</td>
